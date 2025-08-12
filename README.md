@@ -197,5 +197,114 @@ streamlit run streamlit-app.py
 ## Step 8: Deactivate Virtual Environment (Optional)
 When done working, you can leave the environment by running:
 ```bash
+<<<<<<< HEAD
 deactivate
 ```
+=======
+# 1. Install dependencies (if needed)
+pip install -r requirements.txt
+
+# 2. Launch the Streamlit UI
+streamlit run streamlit-app.py
+```
+---
+
+### 🦙 Using Ollama Locally
+#### ✅ Step 1: Install Ollama
+Install Ollama from the official site or using the command line:
+
+Website (all OS): https://ollama.com/download
+
+macOS (via Homebrew):
+```bash
+brew install ollama
+```
+
+Linux (via script):
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+
+#### 🚀 Step 2: Pull and Run the Model
+Once installed, pull the model you want and run the Ollama server locally:
+```bash
+ollama run llama3
+```
+
+### Pipeline Steps:
+1. **Initialize AI agent** (OpenAI or Gemini)
+2. **Fetch papers** (from Semantic Scholar or a zip of PDFs)
+3. **Update ontology** with AI-based enrichment
+4. **Rank papers** based on extracted metadata and keywords
+5. **Build knowledge graph** (Neo4j)
+
+---
+
+## 📂 Output
+
+The pipeline will generate:
+- `updated_ontology.json`: AI-enriched ontology
+- `ranked_papers.csv`: Paper ranking results
+- Neo4j graph: If configured with valid credentials
+
+---
+
+## 🧠 Base Ontology: What It Is & How It Works
+
+The base ontology is a user-defined `.json` file that provides a structured vocabulary for your domain. It acts as the conceptual backbone of the SOKEGraph pipeline, enabling semantic understanding, paper ranking, and knowledge graph construction.
+
+### 📚 What Is an Ontology?
+
+An ontology is a hierarchical organization of concepts relevant to a scientific or technical field. It typically includes:
+
+- High-level layers (e.g., Environment, Process, Material, Application)
+- Categories under each layer
+- Keyword patterns or synonyms that help detect these categories in paper texts
+
+This structure allows the system to semantically tag and classify papers—even when different terminology is used.
+
+### 📁 File Format & Example Structure
+
+The ontology must be defined as a `.json` file using this structure:
+
+```json
+{
+  "CategoryName": {
+    "Subconcept1": ["keyword1", "synonym1", "variant1"],
+    "Subconcept2": ["keyword2", "synonym2"]
+  }
+}
+```
+---
+
+## 🔐 API Keys & Credentials
+
+- Place your **OpenAI** or **Gemini** API keys in a JSON file: `ai_keys.json`
+- Neo4j credentials should be stored in: `neo4j_credentials.json`
+
+Example:
+```json
+{
+  "neo4j_uri": "bolt://localhost:7687",
+  "neo4j_user": "neo4j",
+  "neo4j_pass": "your_password"
+}
+```
+
+---
+
+## 🙋‍♀️ Contributions
+
+Feel free to open issues or pull requests. Let’s improve this together!
+
+---
+
+## 📄 License
+
+MIT License © 2025 [NRC]
+
+---
+
+
+>>>>>>> 2a6c623f5b26d8d6cf1fb2697f0114c1c33f6ddd
